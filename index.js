@@ -2,7 +2,7 @@
 
 var request = require('request');
 var OAuth   = require('oauth-1.0a');
-var crypto  = require('crypto');
+var crypto  = require('crypto-browserify');
 var promise = require('bluebird');
 var _url    = require('url');
 
