@@ -2,7 +2,7 @@
 
 var request = require('request');
 var OAuth   = require('oauth-1.0a');
-var crypto  = require('crypto-browserify');
+var crypto  = require('crypto-js');
 var promise = require('bluebird');
 var _url    = require('url');
 
@@ -131,7 +131,7 @@ WooCommerceAPI.prototype._getOAuth = function() {
     signature_method: 'HMAC-SHA256',
     hash_function: function(base_string, key) {
         //return crypto.createHmac('sha256', key).update(base_string).digest('base64');
-        return CryptoJS.HmacSHA256(base_string, key).toString(CryptoJS.enc.Base64);
+        return crypto.HmacSHA256(base_string, key).toString(crypto.enc.Base64);
     }
   };
 
