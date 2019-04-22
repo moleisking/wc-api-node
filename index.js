@@ -111,7 +111,8 @@ export class WooCommerceAPI {
       signature_method: 'HMAC-SHA256',
       hash_function: function (base_string, key) {
         //return crypto.createHmac('sha256', key).update(base_string).digest('base64');
-        return crypto.HmacSHA256(base_string, key).toString(enc.Base64);
+        //return crypto.HmacSHA256(base_string, key).toString(enc.Base64);
+        return crypto.enc.Base64.stringify(crypto.HmacSHA256(base_string, key));
       }
     };
     if (-1 < ['v1', 'v2'].indexOf(this.version)) {
